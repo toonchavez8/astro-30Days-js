@@ -15,12 +15,12 @@ export default function ToggleThemeWidget() {
 	];
 
 	return (
-		<select data-choose-theme className="select  max-w-xs">
+		<select data-choose-theme className="select max-w-xs">
 			<option disabled selected>
 				Chose a theme
 			</option>
-			{themes.map((theme, index) => (
-				<option key={index} value={theme}>
+			{themes.map((theme) => (
+				<option key={theme} value={theme}>
 					{theme.charAt(0).toUpperCase() + theme.slice(1)}
 				</option>
 			))}
