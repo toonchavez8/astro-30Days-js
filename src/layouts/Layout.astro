@@ -1,7 +1,11 @@
 ---
+import '@/assets/styles/globals.css'
+
+import Header from '@/components/layouts/Header.astro'
+import Footer from '@/components/layouts/Footer.astro'
 ---
 
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -10,8 +14,9 @@
 		<title>Astro</title>
 	</head>
 	<body>
-        
+        <Header />
 		<slot />
+        <Footer />
 	</body>
 
 </html>
