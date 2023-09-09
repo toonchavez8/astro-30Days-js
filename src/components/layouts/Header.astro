@@ -1,6 +1,6 @@
 ---
 import ToggleThemeWidget from "@/components/widgets/ToggleThemeWidget";
-import Maped30DayRoutes from "@/components/widgets/Maped30DayRoutes.tsx";
+
 ---
 <div class="bg-base-200 w-full flex items-center justify-center">
   <header class="navbar  max-w-5xl ">
@@ -12,8 +12,7 @@ import Maped30DayRoutes from "@/components/widgets/Maped30DayRoutes.tsx";
           <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li><a>Home</a></li>
   
-              <a href="/">30 Days</a>
-              <Maped30DayRoutes />
+              <a href="/30days">30 Days</a>
             </li>
             <li><a>Item 3</a></li>
           </ul>
@@ -26,10 +25,8 @@ import Maped30DayRoutes from "@/components/widgets/Maped30DayRoutes.tsx";
         <ul class="menu menu-horizontal px-1">
           <li><a href="/">Home</a></li>
           <li tabindex="0">
-            <details >
-              <summary><a href="/30days">30 Days</a></summary>
-              <Maped30DayRoutes />
-            </details>
+                    <summary><a href="/30days">30 Days</a></summary>
+          
           </li>
           <li><a href="/about">About</a></li>
         </ul>
