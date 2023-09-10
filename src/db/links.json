@@ -1,35 +1,182 @@
 [
-	{ "page": "01-javascript-drum-kit.astro", "done": false },
-	{ "page": "02-js-and-css-clock.astro", "done": false },
-	{ "page": "03-css-variables.astro", "done": false },
-	{ "page": "04-array-cardio-day-1.astro", "done": false },
-	{ "page": "05-flex-panel-gallery.astro", "done": false },
-	{ "page": "06-type-ahead.astro", "done": false },
-	{ "page": "07-array-cardio-day-2.astro", "done": false },
-	{ "page": "08-fun-with-html5-canvas.astro", "done": false },
-	{ "page": "09-dev-tools-domination.astro", "done": false },
-	{ "page": "10-hold-shift-and-check-checkboxes.astro", "done": false },
-	{ "page": "11-custom-video-player.astro", "done": false },
-	{ "page": "12-key-sequence-detection.astro", "done": false },
-	{ "page": "13-slide-in-on-scroll.astro", "done": false },
-	{ "page": "14-javascript-references-vs-copying.astro", "done": false },
-	{ "page": "15-localstorage.astro", "done": false },
-	{ "page": "16-mouse-move-shadow.astro", "done": false },
-	{ "page": "17-sort-without-articles.astro", "done": false },
-	{ "page": "18-adding-up-times-with-reduce.astro", "done": false },
-	{ "page": "19-webcam-fun.astro", "done": false },
-	{ "page": "20-speech-detection.astro", "done": false },
-	{ "page": "21-geolocation.astro", "done": false },
-	{ "page": "22-follow-along-link-highlighter.astro", "done": false },
-	{ "page": "23-speech-synthesis.astro", "done": false },
-	{ "page": "24-sticky-nav.astro", "done": false },
+	{
+		"page": "01-javascript-drum-kit.astro",
+		"done": true,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "02-js-and-css-clock.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "03-css-variables.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "04-array-cardio-day-1.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "05-flex-panel-gallery.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "06-type-ahead.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "07-array-cardio-day-2.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "08-fun-with-html5-canvas.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "09-dev-tools-domination.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "10-hold-shift-and-check-checkboxes.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "11-custom-video-player.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "12-key-sequence-detection.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "13-slide-in-on-scroll.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "14-javascript-references-vs-copying.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "15-localstorage.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "16-mouse-move-shadow.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "17-sort-without-articles.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "18-adding-up-times-with-reduce.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "19-webcam-fun.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "20-speech-detection.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "21-geolocation.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "22-follow-along-link-highlighter.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "23-speech-synthesis.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "24-sticky-nav.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
 	{
 		"page": "25-event-capture-propagation-bubbling-and-once.astro",
-		"done": false
+		"done": false,
+		"img": "string",
+		"tags": []
 	},
-	{ "page": "26-stripe-follow-along-nav.astro", "done": false },
-	{ "page": "27-click-and-drag.astro", "done": false },
-	{ "page": "28-video-speed-controller.astro", "done": false },
-	{ "page": "29-countdown-timer.astro", "done": false },
-	{ "page": "30-whack-a-mole.astro", "done": false }
+	{
+		"page": "26-stripe-follow-along-nav.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "27-click-and-drag.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "28-video-speed-controller.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "29-countdown-timer.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	},
+	{
+		"page": "30-whack-a-mole.astro",
+		"done": false,
+		"img": "string",
+		"tags": []
+	}
 ]
