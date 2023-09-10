@@ -5,11 +5,20 @@ export default function Maped30DayRoutes() {
 	function isPageDone(pageName: string) {
 		// we want to find an object with pagename in the db
 		const status = dayLinks.find(({ page }) => page === pageName);
-		// return the object alone
+		// return the object alone if found
 		if (status) {
 			return status.done;
 		}
+
+		// if not return false anyways
 		return false;
+	}
+
+	// function to change remove hyphens from page names
+	function getlegiblePageNames(pageName: string) {
+		const legibleName = pageName.replace(/-/g, " ");
+
+		return legibleName;
 	}
 
 	return (
@@ -22,16 +31,20 @@ export default function Maped30DayRoutes() {
 					{dayLinks.map((link: { page: string }) => {
 						const pageName = String(link.page).slice(0, -6); // Convert link to a string and then slice the last 6 characters (.astro)
 						const isDone = isPageDone(link.page); // Check if the page is done
+
+						const legiblePageNames = getlegiblePageNames(pageName);
+
 						// Determine the class based on whether the page is done or not
-						const linkClass = isDone ? "" : "btn-disabled";
+						const linkClass = isDone
+							? "text-primary hover:text-secondary"
+							: "btn-disabled opacity-25";
 						return (
 							<li key={pageName}>
 								<a
 									href={`/day/${pageName}`}
-									className={`block ${linkClass} cursor-pointer`}
-									// Add other tailwind classes or styles as needed
+									className={`block ${linkClass} cursor-pointer capitalize`}
 								>
-									{pageName}
+									{legiblePageNames}
 								</a>
 							</li>
 						);
