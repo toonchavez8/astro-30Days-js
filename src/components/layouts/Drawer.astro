@@ -1,0 +1,30 @@
+---
+import Footer from '@/components/layouts/Footer.astro'
+import Maped30DayRoutes from '@/components/widgets/Maped30DayRoutes'
+import ToggleThemeWidget from '@/components/widgets/ToggleThemeWidget'
+---
+<div class="drawer lg:drawer-open">
+    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col items-center relative">
+   
+      <label for="my-drawer-2" class="btn btn-ghost drawer-button lg:hidden absolute top-0 left-0 m-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></label>
+      <slot />
+    </div> 
+    <div class="drawer-side">
+      <label for="my-drawer-2" class="drawer-overlay"></label> 
+      <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content flex flex-col gap-10 isolate">
+        <a class="flex justify-center w-full  z-50 normal-case text-xl bg-base-200 font-bold sticky top-0 p-4" href="/">
+            <img src="/favicon.svg" class="w-8"/>
+            30Days of JS</a>
+             <Maped30DayRoutes />
+             <li><a href="/about" class="">About</a></li>
+          
+             <ToggleThemeWidget  />
+            <Footer />
+      </ul>
+    
+  
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
