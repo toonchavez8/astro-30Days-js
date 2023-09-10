@@ -3,8 +3,12 @@ import dayLinks from "@/db/links";
 export default function Maped30DayRoutes() {
 	// Define a function to check if a page is done
 	function isPageDone(pageName: string) {
-		// You can implement your logic here to check if the page is done
-		// For now, let's assume it's not done
+		// we want to find an object with pagename in the db
+		const status = dayLinks.find(({ page }) => page === pageName);
+		// return the object alone
+		if (status) {
+			return status.done;
+		}
 		return false;
 	}
 
@@ -17,7 +21,7 @@ export default function Maped30DayRoutes() {
 				<ul>
 					{dayLinks.map((link: { page: string }) => {
 						const pageName = String(link.page).slice(0, -6); // Convert link to a string and then slice the last 6 characters (.astro)
-						const isDone = isPageDone(pageName); // Check if the page is done
+						const isDone = isPageDone(link.page); // Check if the page is done
 						// Determine the class based on whether the page is done or not
 						const linkClass = isDone ? "" : "btn-disabled";
 						return (
