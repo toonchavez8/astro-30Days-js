@@ -1,11 +1,9 @@
 ---
 import '@/assets/styles/globals.css'
-
-import Header from '@/components/layouts/Header.astro'
-import Footer from '@/components/layouts/Footer.astro'
+import Drawer from '@/components/layouts/Drawer.astro'
 ---
 
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" >
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -13,11 +11,10 @@ import Footer from '@/components/layouts/Footer.astro'
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-        <Header />
-		<slot />
-        <Footer />
+	<body class="">
+        <Drawer > 
+			<main class="min-h-screen w-full md:flex-1 flex flex-col items-center pt-10 max-w-4xl  "><slot /></main>       
+    	</Drawer>
 	</body>
 
 </html>
- 
