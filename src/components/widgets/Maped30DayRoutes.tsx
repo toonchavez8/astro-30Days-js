@@ -1,6 +1,6 @@
 import dayLinks from "@/db/links";
 
-export default function Maped30DayRoutes() {
+export default function Maped30DayRoutes({ ActiveLink }) {
 	// Define a function to check if a page is done
 	function isPageDone(pageName: string) {
 		// we want to find an object with pagename in the db
@@ -21,6 +21,18 @@ export default function Maped30DayRoutes() {
 		return legibleName;
 	}
 
+	function isActiveLink(pageLinks: string) {
+		// check if pagelinks is equal to ActiveLink
+		const setActiveLink = ActiveLink.ActiveLink.ActiveLink;
+
+		const isLinkActive = pageLinks === setActiveLink;
+
+		if (isLinkActive) {
+			return isLinkActive;
+		}
+		return false;
+	}
+
 	return (
 		<ul className="p-2 z-10 scroll-smooth snap-y snap-start menu ">
 			<li>
@@ -38,11 +50,13 @@ export default function Maped30DayRoutes() {
 						const linkClass = isDone
 							? "text-primary hover:text-secondary"
 							: "btn-disabled opacity-25";
+
+						const checkActiveLink = isActiveLink(pageName) ? "text-accent" : "";
 						return (
 							<li key={pageName}>
 								<a
 									href={`/day/${pageName}`}
-									className={`block ${linkClass} cursor-pointer capitalize`}
+									className={`block ${linkClass} ${checkActiveLink} cursor-pointer capitalize`}
 								>
 									{legiblePageNames}
 								</a>
