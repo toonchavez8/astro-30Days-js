@@ -1,6 +1,16 @@
 import dayLinks from "@/db/links";
 
-export default function Maped30DayRoutes({ ActiveLink }) {
+// Define TypeScript types for your data
+interface DayLink {
+	page: string;
+	done: boolean;
+}
+
+interface Props {
+	ActiveLink: string;
+}
+
+export default function Maped30DayRoutes({ ActiveLink }: Props) {
 	// Define a function to check if a page is done
 	function isPageDone(pageName: string) {
 		// we want to find an object with pagename in the db
@@ -21,16 +31,9 @@ export default function Maped30DayRoutes({ ActiveLink }) {
 		return legibleName;
 	}
 
-	function isActiveLink(pageLinks: string) {
-		// check if pagelinks is equal to ActiveLink
-		const setActiveLink = ActiveLink.ActiveLink.ActiveLink;
-
-		const isLinkActive = pageLinks === setActiveLink;
-
-		if (isLinkActive) {
-			return isLinkActive;
-		}
-		return false;
+	function isActiveLink(pageLinks: string): boolean {
+		// Check if pageLinks is equal to ActiveLink
+		return pageLinks === ActiveLink;
 	}
 
 	return (
