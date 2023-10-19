@@ -3,7 +3,7 @@
 		"page": "01-javascript-drum-kit.astro",
 		"done": true,
 		"img": "string",
-		"tags": []
+		"tags": ["audio", "drum kit", "javascript"]
 	},
 	{
 		"page": "02-js-and-css-clock.astro",

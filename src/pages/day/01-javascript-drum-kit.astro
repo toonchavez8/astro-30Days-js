@@ -9,6 +9,9 @@ import ride from "@/assets/30days/01-javascript-drum-kit/sounds/ride.wav"
 import snare from "@/assets/30days/01-javascript-drum-kit/sounds/snare.wav"
 import tom from "@/assets/30days/01-javascript-drum-kit/sounds/tom.wav"
 import tink from "@/assets/30days/01-javascript-drum-kit/sounds/tink.wav"
+
+
+
 ---
 <style>
   .active{
@@ -19,7 +22,7 @@ import tink from "@/assets/30days/01-javascript-drum-kit/sounds/tink.wav"
 </style>
 <Layout ActiveLink="01-javascript-drum-kit">
   <h1 class="text-3xl font-bold">Day 01</h1>
-   <section class="flex flex-wrap justify-center my-auto caret-transparent transition-all ease 
+   <section id="keyBored" class="flex flex-wrap justify-center my-auto caret-transparent transition-all ease 
    duration-75	">
     <div data-key="65" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
       <kbd>A</kbd> 
@@ -81,75 +84,91 @@ import tink from "@/assets/30days/01-javascript-drum-kit/sounds/tink.wav"
 
   
 <script>
+interface AudioElement extends HTMLAudioElement {
+  dataset: {
+    key: string;
+  };
+}
 
-// Function to add the shake effect and yellow border
+interface HTMLElementWithDataset extends HTMLElement {
+  dataset: {
+    key: string;
+  };
+}
+
+interface KeyboardEventWithKeyCode extends KeyboardEvent {
+  keyCode: number;
+}
+// Function to add the shake effect and yellow border  
 function shakeKeyboard() {
-  const keyboard = document.querySelector('.flex.flex-wrap');
-  keyboard?.classList.add('border','shadow-lg', 'rounded', 'border-yellow-500');
+  const keyboard = document.getElementById('keyBored');
+  if (keyboard) {
+    keyboard.classList.add('border','shadow-lg', 'rounded', 'border-warning');
 
-  // Shake effect
-  setTimeout(() => {
-    keyboard.style.transform = 'translateX(-10px)';
-  }, 0);
-  setTimeout(() => {
-    keyboard.style.transform = 'translateX(10px)';
-  }, 100);
-  setTimeout(() => {
-    keyboard.style.transform = 'translateX(-10px)';
-  }, 200);
-  setTimeout(() => {
-    keyboard.style.transform = 'translateX(10px)';
-  }, 300);
-  setTimeout(() => {
-    keyboard.style.transform = 'translateX(0)';
-    keyboard?.classList.remove('border','shadow-lg', 'border-yellow-500');
-  }, 400);
+    // Shake effect
+    setTimeout(() => {
+      keyboard.style.transform = 'translateX(-10px)';
+    }, 0);
+    setTimeout(() => {
+      keyboard.style.transform = 'translateX(10px)';
+    }, 100);
+    setTimeout(() => {
+      keyboard.style.transform = 'translateX(-10px)';
+    }, 200);
+    setTimeout(() => {
+      keyboard.style.transform = 'translateX(10px)';
+    }, 300);
+    setTimeout(() => {
+      keyboard.style.transform = 'translateX(0)';
+      keyboard.classList.remove('border','shadow-lg', 'border-warning');
+    }, 400);
+  }
 }
 
 // Get the audio files
-function playSound(e) {
-  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+function playSound(e: KeyboardEventWithKeyCode) {
+  const audio = document.querySelector<AudioElement>(`audio[data-key="${e.keyCode}"]`);
+  const key = document.querySelector<HTMLElementWithDataset>(`div[data-key="${e.keyCode}"]`);
 
-      // Define an array of allowed keyCodes for Tab and Enter
+  // Define an array of allowed keyCodes for Tab and Enter
   const allowedKeyCodes = [9, 13];
 
-// Check if the keyCode is not in the allowed range (not Tab or Enter) and if audio is not found
-if (!audio && !allowedKeyCodes.includes(e.keyCode)) {
-  shakeKeyboard();
-  return;
-}
+  // Check if the keyCode is not in the allowed range (not Tab or Enter) and if audio is not found
+  if (!audio && !allowedKeyCodes.includes(e.keyCode)) {
+    shakeKeyboard();
+    return;
+  }
 
-    audio.currentTime = 0;
-    audio.play();
+  audio!.currentTime = 0;
+  audio!.play();
 
-
-       // Add the "active" class when a key is pressed
-       key.classList.add('active');
-
+  // Add the "active" class when a key is pressed
+  key?.classList.add('active');
 }
 
 // Remove the "active" class when the key is released
-function removeTransition(e) {
- if (e.propertyName!== 'transform') return;
- e.target.classList.remove('active');
+function removeTransition(e: TransitionEvent) {
+  if (e.propertyName !== 'transform') return;
+  (e.target as HTMLElement).classList.remove('active');
+
 }
 
 // Add a transitionend event to the keys
-const keys = document.querySelectorAll('.w-40');
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+const keys = document.querySelectorAll<HTMLElement>('.w-40');
+keys.forEach((key) => key.addEventListener('transitionend', removeTransition));
 
 // Add onclick listener to play sound
-
-keys.forEach(key => key.addEventListener('click' , (e)=>{
-  const datakey = key.getAttribute('data-key');
-  const event = {keyCode: datakey};
- playSound(event);
-}
-));      
+keys.forEach((key) =>
+  key.addEventListener('click', (e) => {
+    const datakey = key.dataset.key;
+    const event = { keyCode: Number(datakey) } as KeyboardEventWithKeyCode;
+    playSound(event);
+  })
+);
 
 // Play the audio when a key is pressed
-window.addEventListener('keydown',playSound);
+window.addEventListener('keydown', playSound);
 </script>
+
 
 
