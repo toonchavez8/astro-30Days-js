@@ -1,66 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>JS Drum Kit</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+---
+import Layout from '@/layouts/SideBarLayout.astro'
+import clap from "@/assets/30days/01-javascript-drum-kit/sounds/clap.wav"
+import hihat from "@/assets/30days/01-javascript-drum-kit/sounds/hihat.wav"
+import kick from "@/assets/30days/01-javascript-drum-kit/sounds/kick.wav"
+import openhat from "@/assets/30days/01-javascript-drum-kit/sounds/openhat.wav"
+import boom from "@/assets/30days/01-javascript-drum-kit/sounds/boom.wav"
+import ride from "@/assets/30days/01-javascript-drum-kit/sounds/ride.wav"
+import snare from "@/assets/30days/01-javascript-drum-kit/sounds/snare.wav"
+import tom from "@/assets/30days/01-javascript-drum-kit/sounds/tom.wav"
+import tink from "@/assets/30days/01-javascript-drum-kit/sounds/tink.wav"
 
 
-  <div class="keys">
-    <div data-key="65" class="key">
-      <kbd>A</kbd>
-      <span class="sound">clap</span>
+
+---
+<style>
+  .active{
+    transform: scale(.95);
+    color: white;
+    @apply border-primary
+  }
+</style>
+<Layout ActiveLink="01-javascript-drum-kit">
+  <h1 class="text-3xl font-bold">Day 01</h1>
+   <section id="keyBored" class="flex flex-wrap justify-center my-auto caret-transparent transition-all ease 
+   duration-75	">
+    <div data-key="65" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
+      <kbd>A</kbd> 
+      <span class="text-primary capitalize text-2xl">clap</span>
     </div>
-    <div data-key="83" class="key">
+
+    <div data-key="83" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
       <kbd>S</kbd>
-      <span class="sound">hihat</span>
+      <span class="text-primary capitalize text-2xl">hihat</span>
     </div>
-    <div data-key="68" class="key">
+
+    <div data-key="68" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
       <kbd>D</kbd>
-      <span class="sound">kick</span>
+      <span class="text-primary capitalize text-2xl">kick</span> 
     </div>
-    <div data-key="70" class="key">
+
+    <div data-key="70" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
       <kbd>F</kbd>
-      <span class="sound">openhat</span>
+      <span class="text-primary capitalize text-2xl">openhat</span>
     </div>
-    <div data-key="71" class="key">
+
+    <div data-key="71" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
       <kbd>G</kbd>
-      <span class="sound">boom</span>
+      <span class="text-primary capitalize text-2xl">boom</span>
     </div>
-    <div data-key="72" class="key">
+
+    <div data-key="72" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
       <kbd>H</kbd>
-      <span class="sound">ride</span>
+      <span class="text-primary capitalize text-2xl">ride</span>
     </div>
-    <div data-key="74" class="key">
+
+    <div data-key="74" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
       <kbd>J</kbd>
-      <span class="sound">snare</span>
+      <span class="text-primary capitalize text-2xl">snare</span>
     </div>
-    <div data-key="75" class="key">
+
+    <div data-key="75" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
       <kbd>K</kbd>
-      <span class="sound">tom</span>
+      <span class="text-primary capitalize text-2xl">tom</span>
     </div>
-    <div data-key="76" class="key">
+
+    <div data-key="76" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
       <kbd>L</kbd>
-      <span class="sound">tink</span>
+      <span class="text-primary capitalize text-2xl">tink</span>
     </div>
-  </div>
+  </section>
 
-  <audio data-key="65" src="sounds/clap.wav"></audio>
-  <audio data-key="83" src="sounds/hihat.wav"></audio>
-  <audio data-key="68" src="sounds/kick.wav"></audio>
-  <audio data-key="70" src="sounds/openhat.wav"></audio>
-  <audio data-key="71" src="sounds/boom.wav"></audio>
-  <audio data-key="72" src="sounds/ride.wav"></audio>
-  <audio data-key="74" src="sounds/snare.wav"></audio>
-  <audio data-key="75" src="sounds/tom.wav"></audio>
-  <audio data-key="76" src="sounds/tink.wav"></audio>
+  <audio data-key="65" src={clap}></audio>
+  <audio data-key="83" src={hihat}></audio>
+  <audio data-key="68" src={kick}></audio>
+  <audio data-key="70" src={openhat}></audio>
+  <audio data-key="71" src={boom}></audio>
+  <audio data-key="72" src={ride}></audio>
+  <audio data-key="74" src={snare}></audio>
+  <audio data-key="75" src={tom}></audio>
+  <audio data-key="76" src={tink}></audio>
 
+</Layout>
+
+  
 <script>
+interface AudioElement extends HTMLAudioElement {
+  dataset: {
+    key: string;
+  };
+}
 
+interface HTMLElementWithDataset extends HTMLElement {
+  dataset: {
+    key: string;
+  };
+}
+
+interface KeyboardEventWithKeyCode extends KeyboardEvent {
+  keyCode: number;
+}
+// Function to add the shake effect and yellow border  
+function shakeKeyboard() {
+  const keyboard = document.getElementById('keyBored');
+  if (keyboard) {
+    keyboard.classList.add('border','shadow-lg', 'rounded', 'border-warning');
+
+    // Shake effect
+    setTimeout(() => {
+      keyboard.style.transform = 'translateX(-10px)';
+    }, 0);
+    setTimeout(() => {
+      keyboard.style.transform = 'translateX(10px)';
+    }, 100);
+    setTimeout(() => {
+      keyboard.style.transform = 'translateX(-10px)';
+    }, 200);
+    setTimeout(() => {
+      keyboard.style.transform = 'translateX(10px)';
+    }, 300);
+    setTimeout(() => {
+      keyboard.style.transform = 'translateX(0)';
+      keyboard.classList.remove('border','shadow-lg', 'border-warning');
+    }, 400);
+  }
+}
+
+// Get the audio files
+function playSound(e: KeyboardEventWithKeyCode) {
+  const audio = document.querySelector<AudioElement>(`audio[data-key="${e.keyCode}"]`);
+  const key = document.querySelector<HTMLElementWithDataset>(`div[data-key="${e.keyCode}"]`);
+
+  // Define an array of allowed keyCodes for Tab and Enter
+  const allowedKeyCodes = [9, 13];
+
+  // Check if the keyCode is not in the allowed range (not Tab or Enter) and if audio is not found
+  if (!audio && !allowedKeyCodes.includes(e.keyCode)) {
+    shakeKeyboard();
+    return;
+  }
+
+  audio!.currentTime = 0;
+  audio!.play();
+
+  // Add the "active" class when a key is pressed
+  key?.classList.add('active');
+}
+
+// Remove the "active" class when the key is released
+function removeTransition(e: TransitionEvent) {
+  if (e.propertyName !== 'transform') return;
+  (e.target as HTMLElement).classList.remove('active');
+
+}
+
+// Add a transitionend event to the keys
+const keys = document.querySelectorAll<HTMLElement>('.w-40');
+keys.forEach((key) => key.addEventListener('transitionend', removeTransition));
+
+// Add onclick listener to play sound
+keys.forEach((key) =>
+  key.addEventListener('click', (e) => {
+    const datakey = key.dataset.key;
+    const event = { keyCode: Number(datakey) } as KeyboardEventWithKeyCode;
+    playSound(event);
+  })
+);
+
+// Play the audio when a key is pressed
+window.addEventListener('keydown', playSound);
 </script>
 
 
-</body>
-</html>
+

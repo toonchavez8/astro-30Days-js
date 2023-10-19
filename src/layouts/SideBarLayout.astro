@@ -1,6 +1,9 @@
 ---
 import '@/assets/styles/globals.css'
 import Drawer from '@/components/layouts/Drawer.astro'
+
+// import prop acctive link
+const ActiveLink = Astro.props
 ---
 
 <html lang="en" data-theme="dark" >
@@ -12,7 +15,7 @@ import Drawer from '@/components/layouts/Drawer.astro'
 		<title>Astro</title>
 	</head>
 	<body class="">
-        <Drawer > 
+        <Drawer ActiveLink={ActiveLink}> 
 			<main class="min-h-screen w-full md:flex-1 flex flex-col items-center pt-10 max-w-4xl  "><slot /></main>       
     	</Drawer>
 	</body>

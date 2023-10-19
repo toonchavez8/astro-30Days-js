@@ -2,6 +2,9 @@
 import Footer from '@/components/layouts/Footer.astro'
 import Maped30DayRoutes from '@/components/widgets/Maped30DayRoutes'
 import ToggleThemeWidget from '@/components/widgets/ToggleThemeWidget'
+
+const ActiveLink = Astro.props
+
 ---
 <div class="drawer lg:drawer-open">
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -16,7 +19,7 @@ import ToggleThemeWidget from '@/components/widgets/ToggleThemeWidget'
         <a class="flex justify-center w-full  z-50 normal-case text-xl bg-base-200 font-bold sticky top-0 p-4" href="/">
             <img src="/favicon.svg" class="w-8"/>
             30Days of JS</a>
-             <Maped30DayRoutes />
+             <Maped30DayRoutes {ActiveLink} />
              <li><a href="/about" class="">About</a></li>
           
              <ToggleThemeWidget  />
