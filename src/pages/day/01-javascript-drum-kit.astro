@@ -18,7 +18,7 @@ import tink from "@/assets/30days/01-javascript-drum-kit/sounds/tink.wav"
   }
 </style>
 <Layout ActiveLink="01-javascript-drum-kit">
-	<h1>30DAys</h1>
+  <h1 class="text-3xl font-bold">Day 01</h1>
    <section class="flex flex-wrap justify-center my-auto ">
     <div data-key="65" class="w-40 h-40 bg-base-300 border  border-accent cursor-pointer rounded m-2 flex flex-col items-center justify-center text-5xl text-light hover:scale-105 active:scale-95 transition-all ease-in-out active:text-white active:border-primary">
       <kbd>A</kbd> 
@@ -106,8 +106,13 @@ const keys = document.querySelectorAll('.w-40');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
 // Add onclick listener to play sound
-const dataKeys = document.querySelectorAll('[data-key]');
-dataKeys.forEach(key => key.addEventListener('click', playSound));      
+
+keys.forEach(key => key.addEventListener('click' , (e)=>{
+  const datakey = key.getAttribute('data-key');
+  const event = {keyCode: datakey};
+ playSound(event);
+}
+));      
 
 // Play the audio when a key is pressed
 window.addEventListener('keydown',playSound);
